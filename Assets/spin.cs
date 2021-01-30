@@ -13,7 +13,6 @@ public class spin : MonoBehaviour
 
     public void rotateX(GameObject sphere)
     {
-
         if (rotate)
         {
             return;
@@ -69,7 +68,7 @@ public class spin : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetButton("Reload"))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }

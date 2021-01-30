@@ -7,7 +7,10 @@ public class LevelComplete : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        StartCoroutine(LoadSceneAsyncScene());
+        if (other.CompareTag("Player"))
+        {
+            StartCoroutine(LoadSceneAsyncScene());
+        }
     }
 
     IEnumerator LoadSceneAsyncScene()
