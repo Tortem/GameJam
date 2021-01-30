@@ -5,7 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Cube
+<<<<<<< HEAD
   - CameraController
+=======
+  - Axis
+>>>>>>> 0da5ec4cb279a79335761ec696168260b0a4ea3c
   layers:
   - Default
   - TransparentFX
