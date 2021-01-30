@@ -6,6 +6,12 @@ using UnityEngine;
 
 public class NonPhysicMovement : MonoBehaviour
 {
+    AudioSource audioSource;
+
+    public AudioClip jump;
+    public AudioClip land;
+
+    private bool jumped;
     private CharacterController controller;
     private Vector3 playerVelocity = Vector3.zero;
     [SerializeField] private float playerSpeed = 2.0f;
@@ -17,6 +23,7 @@ public class NonPhysicMovement : MonoBehaviour
 
     private void Awake()
     {
+        audioSource = gameObject.transform.GetChild(0).GetComponent<AudioSource>();
         controller = GetComponent<CharacterController>();
         movementAllowed = true;
     }
@@ -39,14 +46,26 @@ public class NonPhysicMovement : MonoBehaviour
         Vector3 move = transform.forward * verticalMove + transform.right * horizontalMove;
         controller.Move(move * Time.deltaTime *  speed + playerVelocity * Time.deltaTime);
 
+        if (!isGrounded)
+        {
+            jumped = true;
+        }
+
         // jumping and gravity
         if (isGrounded && playerVelocity.y < 0)
         {
+            if (jumped)
+            {
+                audioSource.PlayOneShot(land);
+                jumped = false;
+            }
             playerVelocity.y = 0f;
         }
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
+            audioSource.PlayOneShot(jump);
+            jumped = true;
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
         }
 
