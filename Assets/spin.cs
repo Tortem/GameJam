@@ -4,34 +4,88 @@ using UnityEngine;
 
 public class spin : MonoBehaviour
 {
-    public GameObject obj;
-    private bool s;
-    int rotationCounter;
+    public GameObject player;
+    private bool rotate = false;
+    public float rotationSpeed;
+    float rotationCounter;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
-    private void OnTriggerEnter(Collider other)
+    Vector3 rotation;
+
+    public void rotateX(GameObject sphere)
     {
-        if(!s)
-            rotationCounter = 0;
-        s = true;
+
+        if (rotate)
+        {
+            return;
+        }
+        gameObject.transform.eulerAngles = new Vector3(0f, 0f, 0f);
+        rotationCounter = 0;
+        rotate = true;
+        rotation = new Vector3(rotationSpeed, 0f, 0f);
+        foreach (GameObject o in GameObject.FindGameObjectsWithTag("Cube"))
+        {
+            o.transform.SetParent(gameObject.transform);
+        }
 
     }
+
+    public void rotateY(GameObject sphere)
+    {
+
+        if (rotate)
+        {
+            return;
+        }
+        gameObject.transform.eulerAngles = new Vector3(0f, 0f, 0f);
+        foreach (GameObject o in GameObject.FindGameObjectsWithTag("Cube"))
+        {
+            o.transform.SetParent(gameObject.transform);
+        }
+        
+        rotationCounter = 0;
+            rotate = true;
+            rotation = new Vector3(0f, rotationSpeed, 0f);
+
+    }
+
+    public void rotateZ(GameObject sphere)
+    {
+        if (rotate)
+        {
+            return;
+        }
+        gameObject.transform.eulerAngles = new Vector3(0f, 0f, 0f);
+        foreach (GameObject o in GameObject.FindGameObjectsWithTag("Cube"))
+        {
+            o.transform.SetParent(gameObject.transform);
+        }
+        rotationCounter = 0;
+        rotate = true;
+        rotation = new Vector3(0f, 0f, rotationSpeed);
+    }
+
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (s && rotationCounter != 90)
+        if (rotate && rotationCounter != 90)
         {
-            obj.transform.Rotate(new Vector3(0f,0f,1f));
-            rotationCounter++;
+            gameObject.transform.Rotate(rotation);
+            rotationCounter+= rotationSpeed;
         }
         else
         {
-            s = false;
+            if (rotate)
+            {
+                gameObject.transform.DetachChildren();
+            }
+            rotate = false;
         }
     }
 }
