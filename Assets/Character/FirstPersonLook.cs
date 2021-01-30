@@ -2,17 +2,15 @@
 
 public class FirstPersonLook : MonoBehaviour
 {
-    [SerializeField]
-    Transform character;
+    public Transform character;
     Vector2 currentMouseLook;
     Vector2 appliedMouseDelta;
     public float sensitivity = 1;
     public float smoothing = 2;
 
-
-    void Reset()
+    private void Awake()
     {
-        character = GetComponentInParent<FirstPersonMovement>().transform;
+        character = GetComponentInParent<CharacterController>().transform;
     }
 
     void Start()

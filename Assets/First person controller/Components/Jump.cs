@@ -11,7 +11,7 @@ public class Jump : MonoBehaviour
 
     void Reset()
     {
-        groundCheck = GetComponentInChildren<GroundCheck>();
+        groundCheck = GetComponent<GroundCheck>();
         if (!groundCheck)
             groundCheck = GroundCheck.Create(transform);
     }
