@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class spin : MonoBehaviour
 {
-    public GameObject player;
     private bool rotate = false;
     public float rotationSpeed;
     float rotationCounter;
@@ -69,6 +69,10 @@ public class spin : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
 
         if (rotate && rotationCounter != 90)
         {
@@ -79,7 +83,6 @@ public class spin : MonoBehaviour
         {
             if (rotate)
             {
-                player.GetComponent<NonPhysicMovement>().movementAllowed = true;
                 gameObject.transform.DetachChildren();
             }
             rotate = false;

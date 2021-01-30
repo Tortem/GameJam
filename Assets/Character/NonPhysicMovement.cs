@@ -18,7 +18,7 @@ public class NonPhysicMovement : MonoBehaviour
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
-        movementAllowed = false;
+        movementAllowed = true;
     }
 
     // Update is called once per frame
