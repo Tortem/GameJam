@@ -5,10 +5,14 @@ using UnityEngine;
 public class MenuController : MonoBehaviour
 {
     private bool active;
+    private GameObject player;
+    private GameObject camSwitcher;
 
     private void Awake()
     {
         active = true;
+        player = GameObject.FindGameObjectWithTag("Player");
+        camSwitcher = GameObject.FindGameObjectWithTag("CameraController");
     }
 
     // Update is called once per frame
@@ -32,7 +36,8 @@ public class MenuController : MonoBehaviour
 
     void activation(bool activate)
     {
-        GameObject.FindGameObjectWithTag("Player").GetComponent<NonPhysicMovement>().movementAllowed = !activate;
+        player.GetComponent<NonPhysicMovement>().movementAllowed = !activate;
+        camSwitcher.GetComponent<CameraSwitch>().SwitchCamera();
         transform.GetChild(0).gameObject.SetActive(activate);
         active = activate;
     }

@@ -212,6 +212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 2
+  playerSprintSpeed: 4
   jumpHeight: 1
   gravityValue: -9.81
   isGrounded: 0
