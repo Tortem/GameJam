@@ -9,12 +9,6 @@ public class spin : MonoBehaviour
     public float rotationSpeed;
     float rotationCounter;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     Vector3 rotation;
 
     public void rotateX(GameObject sphere)
@@ -28,6 +22,7 @@ public class spin : MonoBehaviour
         rotationCounter = 0;
         rotate = true;
         rotation = new Vector3(rotationSpeed, 0f, 0f);
+
         foreach (GameObject o in GameObject.FindGameObjectsWithTag("Cube"))
         {
             o.transform.SetParent(gameObject.transform);
@@ -68,12 +63,13 @@ public class spin : MonoBehaviour
         rotationCounter = 0;
         rotate = true;
         rotation = new Vector3(0f, 0f, rotationSpeed);
+
     }
 
 
-    // Update is called once per frame
     void FixedUpdate()
     {
+
         if (rotate && rotationCounter != 90)
         {
             gameObject.transform.Rotate(rotation);
@@ -83,6 +79,7 @@ public class spin : MonoBehaviour
         {
             if (rotate)
             {
+                player.GetComponent<NonPhysicMovement>().movementAllowed = true;
                 gameObject.transform.DetachChildren();
             }
             rotate = false;

@@ -13,7 +13,8 @@ public class LevelComplete : MonoBehaviour
     IEnumerator LoadSceneAsyncScene()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(currentSceneIndex + 1);
+        int sceneAmount = SceneManager.sceneCountInBuildSettings;
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync((currentSceneIndex + 1) % sceneAmount);
 
         while (!asyncLoad.isDone)
         {

@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class rotateY : MonoBehaviour
 {
-    public GameObject cubeAxis;
+    private GameObject cubeAxis;
+
+    private void Awake()
+    {
+        cubeAxis = GameObject.FindGameObjectWithTag("Axis");
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         cubeAxis.GetComponent<spin>().rotateY(gameObject);
