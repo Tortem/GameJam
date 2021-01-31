@@ -32,6 +32,7 @@ public class MenuController : MonoBehaviour
         if (active && Input.GetButton("Jump"))
         {
             activation(false);
+            firstTime = false;
         } 
 
         if (active && !firstTime && Input.GetButton("Cancel"))
