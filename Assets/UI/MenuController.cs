@@ -21,7 +21,7 @@ public class MenuController : MonoBehaviour
 
     private void Start()
     {
-        audioSource.PlayOneShot(speech, 0.8f);
+        audioSource.PlayOneShot(speech, 1f);
     }
 
     // Update is called once per frame

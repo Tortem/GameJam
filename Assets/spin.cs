@@ -72,7 +72,7 @@ public class spin : MonoBehaviour
     private void playSound()
     {
         AudioSource source = GameObject.FindGameObjectWithTag("Player").transform.GetChild(0).GetComponent<AudioSource>();
-        source.PlayOneShot(rotateSound, 0.5f);
+        source.PlayOneShot(rotateSound, 0.7f);
     }
 
 

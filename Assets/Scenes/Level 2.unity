@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -44062,12 +44062,12 @@ PrefabInstance:
     - target: {fileID: 3991966590927747628, guid: d7cfe51766176e44e9779c19e1f1a5e9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.5153644
+      value: -60
       objectReference: {fileID: 0}
     - target: {fileID: 3991966590927747628, guid: d7cfe51766176e44e9779c19e1f1a5e9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 39
+      value: 39.86
       objectReference: {fileID: 0}
     - target: {fileID: 3991966590927747628, guid: d7cfe51766176e44e9779c19e1f1a5e9,
         type: 3}
@@ -44077,22 +44077,22 @@ PrefabInstance:
     - target: {fileID: 3991966590927747628, guid: d7cfe51766176e44e9779c19e1f1a5e9,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.28410792
+      value: 0.18096738
       objectReference: {fileID: 0}
     - target: {fileID: 3991966590927747628, guid: d7cfe51766176e44e9779c19e1f1a5e9,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0.37527022
       objectReference: {fileID: 0}
     - target: {fileID: 3991966590927747628, guid: d7cfe51766176e44e9779c19e1f1a5e9,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: -0.07495914
       objectReference: {fileID: 0}
     - target: {fileID: 3991966590927747628, guid: d7cfe51766176e44e9779c19e1f1a5e9,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.95879227
+      value: 0.9059825
       objectReference: {fileID: 0}
     - target: {fileID: 3991966590927747628, guid: d7cfe51766176e44e9779c19e1f1a5e9,
         type: 3}
@@ -44102,12 +44102,12 @@ PrefabInstance:
     - target: {fileID: 3991966590927747628, guid: d7cfe51766176e44e9779c19e1f1a5e9,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 33.011
+      value: 22.592001
       objectReference: {fileID: 0}
     - target: {fileID: 3991966590927747628, guid: d7cfe51766176e44e9779c19e1f1a5e9,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 3991966590927747628, guid: d7cfe51766176e44e9779c19e1f1a5e9,
         type: 3}
