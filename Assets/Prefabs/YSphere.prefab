@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa812b57fac8c84ea29399b30f8f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  master: {fileID: 11400000, guid: 70c512c0bee0d984ba1dda5e3f325639, type: 2}
 --- !u!1001 &6812034383042640595
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -85,6 +84,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: YSphere
       objectReference: {fileID: 0}
+    - target: {fileID: 4784295805933394474, guid: 3ed5271d143156e44a7abfad45f6e6db,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4f73fc7a2f73fd640ac8de034cfc9fb7, type: 3}
     m_RemovedComponents:
     - {fileID: 6873940141958501632, guid: 3ed5271d143156e44a7abfad45f6e6db, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3ed5271d143156e44a7abfad45f6e6db, type: 3}

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MenuController : MonoBehaviour
 {
+    [SerializeField] private AudioClip speech;
+    private AudioSource audioSource;
     private bool active;
     private GameObject player;
     private GameObject camSwitcher;
@@ -12,13 +14,20 @@ public class MenuController : MonoBehaviour
     {
         active = true;
         player = GameObject.FindGameObjectWithTag("Player");
+        audioSource = player.transform.GetChild(0).GetComponent<AudioSource>();
+        player.GetComponent<NonPhysicMovement>().movementAllowed = false;
         camSwitcher = GameObject.FindGameObjectWithTag("CameraController");
+    }
+
+    private void Start()
+    {
+        audioSource.PlayOneShot(speech, 0.8f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (active && Input.GetButton("Submit"))
+        if (active && Input.GetButton("Jump"))
         {
             activation(false);
         } 

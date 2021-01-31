@@ -13,7 +13,6 @@ public class rotateX : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        print("shit");
         cubeAxis.GetComponent<spin>().rotateX(gameObject);
     }
 }

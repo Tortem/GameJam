@@ -11,31 +11,26 @@ public class NonPhysicMovement : MonoBehaviour
     public AudioClip jump;
     public AudioClip land;
 
-    private bool jumped;
     private CharacterController controller;
     private Vector3 playerVelocity = Vector3.zero;
-    [SerializeField] private float playerSpeed = 2.0f;
-    [SerializeField] private float playerSprintSpeed = 4.0f;
-    [SerializeField] private float jumpHeight = 1.0f;
+    private int airCounter = 0;
+    [SerializeField] private int airTime = 100;
+    [SerializeField] private float playerSpeed = 4.0f;
+    [SerializeField] private float jumpHeight = 0.7f;
     [SerializeField] private float gravityValue = -9.81f;
     [SerializeField] private bool isGrounded;
-    [SerializeField] public bool movementAllowed = false;
+    [SerializeField] public bool movementAllowed = true;
 
     private void Awake()
     {
         audioSource = gameObject.transform.GetChild(0).GetComponent<AudioSource>();
         controller = GetComponent<CharacterController>();
-        movementAllowed = true;
     }
 
     // Update is called once per frame
     void Update()
     {
         if (!movementAllowed) { return; }
-
-        float speed;
-        if (Input.GetButton("Sprint")) { speed = playerSprintSpeed; }
-        else { speed = playerSpeed; }
 
         isGrounded = controller.isGrounded;
 
@@ -44,28 +39,27 @@ public class NonPhysicMovement : MonoBehaviour
         float verticalMove = Input.GetAxis("Vertical");
 
         Vector3 move = transform.forward * verticalMove + transform.right * horizontalMove;
-        controller.Move(move * Time.deltaTime *  speed + playerVelocity * Time.deltaTime);
+        controller.Move(move * Time.deltaTime *  playerSpeed + playerVelocity * Time.deltaTime);
 
         if (!isGrounded)
         {
-            jumped = true;
+            airCounter++;
         }
 
         // jumping and gravity
         if (isGrounded && playerVelocity.y < 0)
         {
-            if (jumped)
+            if (airCounter > airTime)
             {
-                audioSource.PlayOneShot(land);
-                jumped = false;
+                audioSource.PlayOneShot(land, 0.2f);
             }
+            airCounter = 0;
             playerVelocity.y = 0f;
         }
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            audioSource.PlayOneShot(jump);
-            jumped = true;
+            audioSource.PlayOneShot(jump, 0.5f);
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
         }
 

@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class spin : MonoBehaviour
 {
+    [SerializeField] private AudioClip rotateSound;
     private bool rotate = false;
     public float rotationSpeed;
     float rotationCounter;
@@ -17,6 +18,7 @@ public class spin : MonoBehaviour
         {
             return;
         }
+        playSound();
         gameObject.transform.eulerAngles = new Vector3(0f, 0f, 0f);
         rotationCounter = 0;
         rotate = true;
@@ -36,6 +38,7 @@ public class spin : MonoBehaviour
         {
             return;
         }
+        playSound();
         gameObject.transform.eulerAngles = new Vector3(0f, 0f, 0f);
         foreach (GameObject o in GameObject.FindGameObjectsWithTag("Cube"))
         {
@@ -54,6 +57,7 @@ public class spin : MonoBehaviour
         {
             return;
         }
+        playSound();
         gameObject.transform.eulerAngles = new Vector3(0f, 0f, 0f);
         foreach (GameObject o in GameObject.FindGameObjectsWithTag("Cube"))
         {
@@ -63,6 +67,12 @@ public class spin : MonoBehaviour
         rotate = true;
         rotation = new Vector3(0f, 0f, rotationSpeed);
 
+    }
+
+    private void playSound()
+    {
+        AudioSource source = GameObject.FindGameObjectWithTag("Player").transform.GetChild(0).GetComponent<AudioSource>();
+        source.PlayOneShot(rotateSound, 0.5f);
     }
 
 
