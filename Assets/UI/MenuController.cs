@@ -7,14 +7,12 @@ public class MenuController : MonoBehaviour
     [SerializeField] private AudioClip speech;
     private AudioSource audioSource;
     private bool active;
-    private bool firstTime;
     private GameObject player;
     private GameObject camSwitcher;
 
     private void Awake()
     {
         active = true;
-        firstTime = true;
         player = GameObject.FindGameObjectWithTag("Player");
         audioSource = player.transform.GetChild(0).GetComponent<AudioSource>();
         player.GetComponent<NonPhysicMovement>().movementAllowed = false;
@@ -35,17 +33,12 @@ public class MenuController : MonoBehaviour
             firstTime = false;
         } 
 
-        if (active && !firstTime && Input.GetButton("Cancel"))
-        {
-            activation(false);
-        }
-
         if (!active && Input.GetButton("Cancel"))
         {
             activation(true);
         }
 
-        if (active && Input.GetButton("Quit"))
+        if (active && Input.GetButton("Cancel"))
         {
             Application.Quit();
         }
