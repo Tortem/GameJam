@@ -12,6 +12,7 @@ public class MenuController : MonoBehaviour
     {
         active = true;
         player = GameObject.FindGameObjectWithTag("Player");
+        player.GetComponent<NonPhysicMovement>().movementAllowed = false;
         camSwitcher = GameObject.FindGameObjectWithTag("CameraController");
     }
 
