@@ -347,4 +347,4 @@ MonoBehaviour:
   jumpHeight: 0.7
   gravityValue: -9.81
   isGrounded: 0
-  movementAllowed: 0
+  movementAllowed: 1
