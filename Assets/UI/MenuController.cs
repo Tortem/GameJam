@@ -37,7 +37,7 @@ public class MenuController : MonoBehaviour
             activation(true);
         }
 
-        if (active && Input.GetButton("Cancel"))
+        if (active && Input.GetButton("Quit"))
         {
             Application.Quit();
         }
