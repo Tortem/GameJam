@@ -46,8 +46,6 @@ public class NonPhysicMovement : MonoBehaviour
             airCounter++;
         }
 
-        Debug.Log(airCounter);
-
         // jumping and gravity
         if (isGrounded && playerVelocity.y < 0)
         {
