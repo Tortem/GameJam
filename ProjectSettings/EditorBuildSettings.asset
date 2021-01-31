@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Well.unity
     guid: 29015feea6800d245ae947b133cf8e81
   - enabled: 1
+    path: Assets/Scenes/nextTry.unity
+    guid: 74c3700a795d57b488ee5853cded1dd3
+  - enabled: 1
     path: Assets/Scenes/LevelX.unity
     guid: fb1e17a5723240d44bb9677df2c85af6
   m_configObjects: {}

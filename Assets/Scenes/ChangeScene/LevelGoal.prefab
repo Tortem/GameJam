@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 37266890961253908}
   - component: {fileID: 4313563897790222127}
   - component: {fileID: 6965895875516800819}
-  - component: {fileID: 1140640145183124937}
   - component: {fileID: 1156965087708194987}
+  - component: {fileID: 7107606278065974925}
   m_Layer: 0
   m_Name: LevelGoal
   m_TagString: Untagged
@@ -82,20 +82,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &1140640145183124937
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7421089940395717453}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!114 &1156965087708194987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,6 +94,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976c527e4ab073145876af9375908cea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!135 &7107606278065974925
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7421089940395717453}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.6
+  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &7546076286202477003
 GameObject:
   m_ObjectHideFlags: 0
@@ -196,7 +195,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7546076286202477003}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
